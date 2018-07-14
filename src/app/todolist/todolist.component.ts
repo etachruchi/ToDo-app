@@ -10,8 +10,5 @@ constructor() {
     }
 ngOnInit() {
   }
-  // goBack(): void {
-  //   this.location.back();
-  // }
-
+  
 }
