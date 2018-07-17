@@ -10,11 +10,19 @@
         </li>
     </ul>
 </div>
+
 <div *ngIf="selectedTask && editable">
-    <div class="update">
-        <label>name:
-      <input [(ngModel)]="selectedTask.name" placeholder="name"required>
-<button class="submit" title="submit" (click)="clearTodos(todo)">save</button>
+    <form #todoForm="ngForm" (ngSubmit)="onSubmit(todoForm)">
+        <div class="update">
+            <label>name:
+<input type="text" placeholder="User name" required minlength="4" required maxlength="25" [(ngModel)]="selectedTask.name"
+  name="name"
+  #pickedName="ngModel">
+<div *ngIf="!pickedName.valid && pickedName.touched">
+  User name is required!
+</div>
+<button class="submit" title="submit" [disabled]="todoForm.form.invalid" (click)="clearTodos(todo)">save</button>
     </label>
-    </div>
+        </div>
+    </form>
 </div>
