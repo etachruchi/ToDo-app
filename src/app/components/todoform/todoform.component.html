@@ -1,7 +1,7 @@
 <div class="container">
     <h1>My-Form</h1>
     <div class="todoform">
-        <form #todoForm="ngForm">
+        <form #todoForm="ngForm" (ngSubmit)="onSubmit(todoForm)">
             <span class="name1">Name</span>
             <input id="name" name="name" class="form-control" required minlength="4" appForbiddenName="bob" [(ngModel)]="todoform.name" #name="ngModel">
             <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
@@ -21,3 +21,4 @@
             <button type="submit" class="btn btn-success" [disabled]="todoForm.form.invalid">Submit</button>
         </form>
     </div>
+</div>

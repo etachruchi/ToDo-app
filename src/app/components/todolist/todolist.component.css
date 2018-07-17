@@ -1,0 +1,60 @@
+h2 {
+    text-align: center;
+    margin-top: 3%;
+}
+
+.list {
+    width: 95%;
+}
+
+li {
+    margin-left: 44%;
+    width: 30%;
+    cursor: pointer;
+    position: relative;
+    background-color: #EEE;
+    padding: 0.3em 22px;
+    height: 2.6em;
+}
+
+li.selected:hover {
+    color: #607D8B;
+    background-color: #DDD;
+    left: .1em;
+}
+
+.update {
+    margin-left: 44%;
+    margin-top: 20%;
+}
+
+button {
+    background-color: #eee;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    cursor: hand;
+    font-family: Arial;
+}
+
+button:hover {
+    background-color: #cfd8dc;
+}
+
+button.edit {
+    position: relative;
+    float: right;
+    top: -2px;
+    background-color: gray !important;
+    color: white;
+}
+
+button.delete {
+    position: relative;
+    float: right;
+    margin-right: 10px;
+    top: -2px;
+    background-color: gray !important;
+    color: white;
+}

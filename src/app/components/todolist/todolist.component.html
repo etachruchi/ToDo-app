@@ -1,0 +1,20 @@
+<h2>My List</h2>
+<div class="list">
+    <ul>
+        <li *ngFor="let task of list" [class.selected]="task === selectedTask" (click)="onSelect(task)">
+            <span>{{task.name}} </span>
+
+            <button class="edit" title="editTodo" (click)="canEdit()">Edit</button>
+            <button class="delete" title="deleteTodo" (click)=" deleteTodos(task)">delete</button>
+
+        </li>
+    </ul>
+</div>
+<div *ngIf="selectedTask && editable">
+    <div class="update">
+        <label>name:
+      <input [(ngModel)]="selectedTask.name" placeholder="name"required>
+<button class="submit" title="submit" (click)="clearTodos(todo)">save</button>
+    </label>
+    </div>
+</div>
