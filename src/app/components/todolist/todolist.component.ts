@@ -16,27 +16,22 @@ export class TodolistComponent implements OnInit {
   }
   onSelect(task: any): void {
     this.selectedTask = task;
-    console.log(task);
   }
   canEdit() {
     this.editable = true;
   }
   getTodos() {
     this.list = this.formService.getTodos();
-    console.log(this.list);
   }
   editTodos(task) {
     this.formService.editTodos(task);
-    console.log(task);
   }
   clearTodos() {
     this.list = this.formService.getTodos();
     this.editable = false;
-    console.log(this.list);
   }
   deleteTodos(task) {
-    alert("Are you sure you want to delete");
+    alert("Are you sure you want to delete ?");
     this.formService.deleteTodos(task);
-    console.log(task);
   }
 }

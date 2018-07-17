@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from "rxjs";
 @Injectable({
   providedIn: "root"
 })
@@ -11,7 +10,6 @@ export class fromService {
   saveTodo(todo) {
     todo["id"] = this.count;
     this.todos.push(todo);
-    console.log(this.todos);
     ++this.count;
   }
 
@@ -32,7 +30,6 @@ export class fromService {
   clearTodos(todo) {
     todo["id"] = this.count;
     this.todos.push(todo);
-    console.log(this.todos);
     ++this.count;
   }
 }
