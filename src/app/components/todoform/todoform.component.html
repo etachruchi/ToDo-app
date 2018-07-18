@@ -1,9 +1,13 @@
 <div class="container">
-    <h1>My-Form</h1>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h1>My-Form</h1>
+        </div>
+    </div>
     <div class="todoform">
         <form #todoForm="ngForm" (ngSubmit)="onSubmit(todoForm)">
-            <span class="name1">Name</span>
-            <input type="text" placeholder="User name" required minlength="4" required maxlength="25" [(ngModel)]="todoForm.name" name="name" #pickedName="ngModel">
+            <span>Name</span>
+            <input type="text" class="form-control" placeholder="User name" required minlength="4" required maxlength="25" [(ngModel)]="todoForm.name" name="name" #pickedName="ngModel">
             <div *ngIf="!pickedName.valid && pickedName.touched">
                 User name is required!
             </div>
@@ -12,4 +16,5 @@
             </div>
         </form>
     </div>
+
 </div>

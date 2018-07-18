@@ -13,8 +13,9 @@
     }
     
     .register {
-        margin-left: 25%;
+        margin-left: 36%;
         margin-top: 10px;
+        margin-bottom: 20px;
     }
     
     .ng-valid[required],
