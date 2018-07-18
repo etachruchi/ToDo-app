@@ -28,6 +28,10 @@ li.selected:hover {
     margin-top: 20%;
 }
 
+.checked {
+    vertical-align: left;
+}
+
 button {
     background-color: #eee;
     border: none;
