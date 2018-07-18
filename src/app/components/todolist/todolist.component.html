@@ -3,7 +3,7 @@
     <ul>
         <li *ngFor="let task of list" [class.selected]="task === selectedTask" (click)="onSelect(task)">
             <span>
-            <input type="checkbox" class="checked">{{task.name}} 
+            <input type="checkbox" class="checked"[checked]="task.status">{{task.name}}
             </span>
             <button class="edit" title="editTodo" (click)="canEdit()">Edit</button>
             <button class="delete" title="deleteTodo" (click)=" deleteTodos(task)">delete</button>
