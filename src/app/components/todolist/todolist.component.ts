@@ -7,8 +7,9 @@ import { fromService } from "../../services/form.service";
 })
 export class TodolistComponent implements OnInit {
   list: any;
-  selectedTask = { name: "" };
+  selectedTask = { name: "",status:false };
   editable: boolean;
+  
 
   constructor(private formService: fromService) {}
   ngOnInit() {
@@ -16,6 +17,7 @@ export class TodolistComponent implements OnInit {
   }
   onSelect(task: any): void {
     this.selectedTask = task;
+    task.status = !task.status;
   }
   canEdit() {
     this.editable = true;
