@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TodolistComponent } from './todolist/todolist.component';
-import { TodoformComponent } from "./todoform/todoform.component";
+import { TodolistComponent } from './components/todolist/todolist.component';
+import { TodoformComponent } from "./components/todoform/todoform.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/todolist', pathMatch: 'full' },
@@ -10,7 +10,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}

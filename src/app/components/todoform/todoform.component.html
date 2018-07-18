@@ -1,0 +1,15 @@
+<div class="container">
+    <h1>My-Form</h1>
+    <div class="todoform">
+        <form #todoForm="ngForm" (ngSubmit)="onSubmit(todoForm)">
+            <span class="name1">Name</span>
+            <input type="text" placeholder="User name" required minlength="4" required maxlength="25" [(ngModel)]="todoForm.name" name="name" #pickedName="ngModel">
+            <div *ngIf="!pickedName.valid && pickedName.touched">
+                User name is required!
+            </div>
+            <div class="register">
+                <button type="submit" class="btn btn-success" [disabled]="todoForm.form.invalid">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

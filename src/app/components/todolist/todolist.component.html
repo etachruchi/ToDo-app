@@ -1,0 +1,28 @@
+<h2>My List</h2>
+<div class="list">
+    <ul>
+        <li *ngFor="let task of list" [class.selected]="task === selectedTask" (click)="onSelect(task)">
+            <span>
+            <input type="checkbox" class="checked">{{task.name}} 
+            </span>
+            <button class="edit" title="editTodo" (click)="canEdit()">Edit</button>
+            <button class="delete" title="deleteTodo" (click)=" deleteTodos(task)">delete</button>
+
+        </li>
+    </ul>
+</div>
+
+<div *ngIf="selectedTask && editable">
+    <form #todoForm="ngForm" (ngSubmit)="onSubmit(todoForm)">
+        <div class="update">
+            <label>name:
+        <input type="text" placeholder="User name" required minlength="4" required maxlength="25" [(ngModel)]="selectedTask.name"
+          name="name" #pickedName="ngModel">
+        <div *ngIf="!pickedName.valid && pickedName.touched">
+          User name is required!
+        </div>
+        <button class="submit" title="submit" [disabled]="todoForm.form.invalid" (click)="clearTodos(todo)">save</button>
+      </label>
+        </div>
+    </form>
+</div>
