@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { fromService } from "../../services/form.service";
-import { currentId } from 'async_hooks';
+
 @Component({
   selector: "app-todolist",
   templateUrl: "./todolist.component.html",
@@ -25,10 +25,13 @@ export class TodolistComponent implements OnInit {
     this.selectedTask = task;
     task.status = !task.status;
     if (task["date"] == this.date) {
+
     }
     if (task["date"] < this.date) {
+    
     }
     if (task["date"] > this.date) {
+     
     }
   }
   

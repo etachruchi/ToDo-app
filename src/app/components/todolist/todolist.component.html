@@ -14,7 +14,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let task of list" [class.selected]="task === selectedTask" (click)="onSelect(task)" [ngClass]="{'red': !iscompoleted, 'gray': task.date < this.date, 'green':task.date > this.date } ">
+                <tr *ngFor="let task of list" [class.selected]="task === selectedTask" (click)="onSelect(task)" [ngClass]="{'gray': task.date >= this.date , 'red': task.date < this.date, 'green':task.status } ">
                     <td>
                         <input type="checkbox" class="checked" [checked]="task.status">
                     </td>
@@ -32,7 +32,7 @@
                 <form #todoForm="ngForm" (ngSubmit)="onSubmit(todoForm)">
                     <label>name:</label>
                     <div class="edit">
-                        <input class="form-control" type="text" placeholder="User name" required minlength="4" required maxlength="25" [(ngModel)]="selectedTask.name" name="name" #pickedName="ngModel">
+                        <input class="form-control" type="text" placeholder="Task" required minlength="4" required maxlength="25" [(ngModel)]="selectedTask.name" name="name" #pickedName="ngModel">
                         <div *ngIf="!pickedName.valid && pickedName.touched" class="alert alert-danger">
                             User name is required!
                         </div>
