@@ -8,6 +8,7 @@
                 <tr>
                     <th>Select</th>
                     <th>UserName</th>
+                    <th>Date</th>
                     <th>Action</th>
 
                 </tr>
@@ -18,6 +19,7 @@
                         <input type="checkbox" class="checked" [checked]="task.status">
                     </td>
                     <td>{{task.name}}</td>
+                    <td>{{task.date}}</td>
                     <td colspan="2">
                         <button class="btn btn-info btn" title="editTodo" (click)="canEdit()">Edit</button>
                         <button title="deleteTodo" class="btn btn-danger" (click)=" deleteTodos(task)">delete</button>
@@ -31,8 +33,13 @@
                     <label>name:</label>
                     <div class="edit">
                         <input class="form-control" type="text" placeholder="User name" required minlength="4" required maxlength="25" [(ngModel)]="selectedTask.name" name="name" #pickedName="ngModel">
-                        <div *ngIf="!pickedName.valid && pickedName.touched">
+                        <div *ngIf="!pickedName.valid && pickedName.touched" class="alert alert-danger">
                             User name is required!
+                        </div>
+                        <br>
+                        <input class="form-control" id="date" type="Date" [(ngModel)]="selectedTask.date" name="date" #pickedDate="ngModel" required>
+                        <div *ngIf="!pickedDate.valid && pickedDate.touched" class="alert alert-danger">
+                            Date is required!
                         </div>
                         <div class="register">
                             <button class="btn btn-success" title="submit" [disabled]="todoForm.form.invalid" (click)="clearTodos(todo)">save</button>

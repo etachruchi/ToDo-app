@@ -43,11 +43,15 @@ button {
 }
 
 .register {
-    margin-left: 85%;
+    margin-left: 90%;
     margin-top: -30px;
     float: left;
 }
 
 .container {
-    width: 32%;
+    width: 40%;
+}
+
+#date {
+    width: 89%;
 }

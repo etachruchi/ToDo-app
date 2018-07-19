@@ -6,7 +6,6 @@ import { TodolistComponent } from './components/todolist/todolist.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TodoformComponent } from './components/todoform/todoform.component';
 import { TodonavigationComponent } from "./components/todonavigation/todonavigation.component";
-// import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 @NgModule({
   imports: [

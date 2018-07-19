@@ -7,7 +7,7 @@ import { fromService } from "../../services/form.service";
 })
 export class TodolistComponent implements OnInit {
   list: any;
-  selectedTask = { name: "",status:false };
+  selectedTask = { name: "",Date:"",status:false };
   editable: boolean;
   
 
@@ -18,6 +18,7 @@ export class TodolistComponent implements OnInit {
   onSelect(task: any): void {
     this.selectedTask = task;
     task.status = !task.status;
+   
   }
   canEdit() {
     this.editable = true;

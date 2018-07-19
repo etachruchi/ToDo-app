@@ -11,10 +11,12 @@ export class fromService {
     todo["id"] = this.count;
     this.todos.push(todo);
     ++this.count;
+    console.log(todo);
   }
 
   getTodos() {
     return this.todos;
+   
   }
   editTodos(todo) {
     for (let i = 0; i < this.todos.length; i++) {
