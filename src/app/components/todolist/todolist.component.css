@@ -43,11 +43,27 @@ button {
 }
 
 .register {
-    margin-left: 85%;
+    margin-left: 90%;
     margin-top: -30px;
     float: left;
 }
 
+.red {
+    color: red;
+}
+
+.gray {
+    color: gray;
+}
+
+.green {
+    color: green;
+}
+
 .container {
-    width: 32%;
+    width: 40%;
+}
+
+#date {
+    width: 89%;
 }

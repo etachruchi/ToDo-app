@@ -4,12 +4,16 @@
     </div>
     <div class="todoform">
         <form #todoForm="ngForm" class="form-horizontal" (ngSubmit)="onSubmit(todoForm)">
-            <div class="form-group">
+            <div>
                 <span class="name">Name</span>
 
-                <input type="text" class="form-control" placeholder="User name" required minlength="4" required maxlength="25" [(ngModel)]="todoForm.name" name="name" #pickedName="ngModel">
-                <div *ngIf="!pickedName.valid && pickedName.touched">
-                    User name is required!
+                <input type="text" class="form-control" placeholder="Task" required minlength="4" required maxlength="25" [(ngModel)]="todoForm.name" name="name" #pickedName="ngModel">
+                <div *ngIf="!pickedName.valid && pickedName.touched" class="alert alert-danger">
+                    Task is required!
+                </div><br>
+                <input class="form-control" type="Date" [(ngModel)]="todoForm.date" name="date" #pickedDate="ngModel" required>
+                <div *ngIf="!pickedDate.valid && pickedDate.touched" class="alert alert-danger">
+                    Date is required!
                 </div>
                 <div class="register">
                     <button type="submit" class="btn btn-success btn-block" [disabled]="todoForm.form.invalid">Submit</button>

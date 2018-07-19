@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { fromService } from "../../services/form.service";
+
 @Component({
   selector: "app-todolist",
   templateUrl: "./todolist.component.html",
@@ -7,11 +8,13 @@ import { fromService } from "../../services/form.service";
 })
 export class TodolistComponent implements OnInit {
   list: any;
-  selectedTask = { name: "",status:false };
+  selectedTask = { name: "", status: false };
   editable: boolean;
-  
-
-  constructor(private formService: fromService) {}
+ 
+   date: any;
+  constructor(private formService: fromService) {
+     this.date = this.formService.currentDate(); 
+  }
   ngOnInit() {
     this.getTodos();
   }
@@ -19,6 +22,7 @@ export class TodolistComponent implements OnInit {
     this.selectedTask = task;
     task.status = !task.status;
   }
+  
   canEdit() {
     this.editable = true;
   }
@@ -36,4 +40,5 @@ export class TodolistComponent implements OnInit {
     alert("Are you sure you want to delete ?");
     this.formService.deleteTodos(task);
   }
+
 }
