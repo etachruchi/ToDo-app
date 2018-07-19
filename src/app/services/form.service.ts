@@ -7,9 +7,7 @@ export class fromService {
   todos = [];
   currentdate = new Date();
   
-  constructor() {
-    
-  }
+  constructor() { }
 
   saveTodo(todo) {
     todo["id"] = this.count;
@@ -41,6 +39,7 @@ export class fromService {
     const month = this.currentdate.getMonth() < 10 ? "0" + (this.currentdate.getMonth() + 1) : this.currentdate.getMonth() + 1;
     const day = this.currentdate.getDate() < 10 ? "0" + this.currentdate.getDate() : this.currentdate.getDate();
     return (year + '-' + month + '-' + day);
+    
   }
 
 }
