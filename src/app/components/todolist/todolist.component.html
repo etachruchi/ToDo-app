@@ -1,28 +1,45 @@
-<h2>My List</h2>
-<div class="list">
-    <ul>
-        <li *ngFor="let task of list" [class.selected]="task === selectedTask" (click)="onSelect(task)">
-            <span>
-            <input type="checkbox" class="checked"[checked]="task.status">{{task.name}}
-            </span>
-            <button class="edit" title="editTodo" (click)="canEdit()">Edit</button>
-            <button class="delete" title="deleteTodo" (click)=" deleteTodos(task)">delete</button>
+<div class="container">
+    <div class="heading">
+        <h4>Todo-List</h4>
+    </div>
+    <div class="panel-body">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Select</th>
+                    <th>UserName</th>
+                    <th>Action</th>
 
-        </li>
-    </ul>
-</div>
-
-<div *ngIf="selectedTask && editable">
-    <form #todoForm="ngForm" (ngSubmit)="onSubmit(todoForm)">
-        <div class="update">
-            <label>name:
-        <input type="text" placeholder="User name" required minlength="4" required maxlength="25" [(ngModel)]="selectedTask.name"
-          name="name" #pickedName="ngModel">
-        <div *ngIf="!pickedName.valid && pickedName.touched">
-          User name is required!
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let task of list" [class.selected]="task === selectedTask" (click)="onSelect(task)">
+                    <td>
+                        <input type="checkbox" class="checked" [checked]="task.status">
+                    </td>
+                    <td>{{task.name}}</td>
+                    <td colspan="2">
+                        <button class="btn btn-info btn" title="editTodo" (click)="canEdit()">Edit</button>
+                        <button title="deleteTodo" class="btn btn-danger" (click)=" deleteTodos(task)">delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div *ngIf="selectedTask && editable">
+            <div class="update">
+                <form #todoForm="ngForm" (ngSubmit)="onSubmit(todoForm)">
+                    <label>name:</label>
+                    <div class="edit">
+                        <input class="form-control" type="text" placeholder="User name" required minlength="4" required maxlength="25" [(ngModel)]="selectedTask.name" name="name" #pickedName="ngModel">
+                        <div *ngIf="!pickedName.valid && pickedName.touched">
+                            User name is required!
+                        </div>
+                        <div class="register">
+                            <button class="btn btn-success" title="submit" [disabled]="todoForm.form.invalid" (click)="clearTodos(todo)">save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-        <button class="submit" title="submit" [disabled]="todoForm.form.invalid" (click)="clearTodos(todo)">save</button>
-      </label>
-        </div>
-    </form>
+    </div>
 </div>
