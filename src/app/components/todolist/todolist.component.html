@@ -1,21 +1,30 @@
 <div class="container">
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h1>My-List</h1>
-        </div>
+    <div class="heading">
+        <h4>Todo-List</h4>
     </div>
-
     <div class="panel-body">
-        <ul class="task">
-            <li *ngFor="let task of list" class="list-group-item" [class.selected]="task === selectedTask" (click)="onSelect(task)">
-                <span>
-                <input type="checkbox" class="checked" [checked]="task.status">{{task.name}}
-                </span>
-                <button class="btn btn-info btn" title="editTodo" (click)="canEdit()">Edit</button>
-                <button title="deleteTodo" class="btn btn-warning" (click)=" deleteTodos(task)">delete</button>&nbsp;&nbsp;
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Select</th>
+                    <th>UserName</th>
+                    <th>Action</th>
 
-            </li>
-        </ul>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let task of list" [class.selected]="task === selectedTask" (click)="onSelect(task)">
+                    <td>
+                        <input type="checkbox" class="checked" [checked]="task.status">
+                    </td>
+                    <td>{{task.name}}</td>
+                    <td colspan="2">
+                        <button class="btn btn-info btn" title="editTodo" (click)="canEdit()">Edit</button>
+                        <button title="deleteTodo" class="btn btn-danger" (click)=" deleteTodos(task)">delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
         <div *ngIf="selectedTask && editable">
             <div class="update">
                 <form #todoForm="ngForm" (ngSubmit)="onSubmit(todoForm)">

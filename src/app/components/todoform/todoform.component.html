@@ -1,20 +1,20 @@
 <div class="container">
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h1>My-Form</h1>
-        </div>
+    <div>
+        <h4>Todo-Form</h4>
     </div>
     <div class="todoform">
-        <form #todoForm="ngForm" (ngSubmit)="onSubmit(todoForm)">
-            <span>Name</span>
-            <input type="text" class="form-control" placeholder="User name" required minlength="4" required maxlength="25" [(ngModel)]="todoForm.name" name="name" #pickedName="ngModel">
-            <div *ngIf="!pickedName.valid && pickedName.touched">
-                User name is required!
-            </div>
-            <div class="register">
-                <button type="submit" class="btn btn-success" [disabled]="todoForm.form.invalid">Submit</button>
+        <form #todoForm="ngForm" class="form-horizontal" (ngSubmit)="onSubmit(todoForm)">
+            <div class="form-group">
+                <span class="name">Name</span>
+
+                <input type="text" class="form-control" placeholder="User name" required minlength="4" required maxlength="25" [(ngModel)]="todoForm.name" name="name" #pickedName="ngModel">
+                <div *ngIf="!pickedName.valid && pickedName.touched">
+                    User name is required!
+                </div>
+                <div class="register">
+                    <button type="submit" class="btn btn-success btn-block" [disabled]="todoForm.form.invalid">Submit</button>
+                </div>
             </div>
         </form>
     </div>
-
 </div>
