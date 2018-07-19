@@ -1,22 +1,23 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 @Injectable({
   providedIn: "root"
 })
 export class fromService {
   count = 0;
   todos = [];
-  constructor() {}
+  currentdate = new Date();
+  constructor() {
+   
+  }
 
   saveTodo(todo) {
     todo["id"] = this.count;
     this.todos.push(todo);
     ++this.count;
-    console.log(todo);
   }
 
   getTodos() {
     return this.todos;
-   
   }
   editTodos(todo) {
     for (let i = 0; i < this.todos.length; i++) {
@@ -25,7 +26,6 @@ export class fromService {
       }
     }
   }
-
   deleteTodos(task) {
     this.todos.splice(this.todos.indexOf(task), 1);
   }
@@ -34,4 +34,5 @@ export class fromService {
     this.todos.push(todo);
     ++this.count;
   }
+
 }

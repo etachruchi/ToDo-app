@@ -48,6 +48,18 @@ button {
     float: left;
 }
 
+.red {
+    color: red;
+}
+
+.gray {
+    color: gray;
+}
+
+.green {
+    color: green;
+}
+
 .container {
     width: 40%;
 }

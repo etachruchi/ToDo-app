@@ -14,7 +14,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let task of list" [class.selected]="task === selectedTask" (click)="onSelect(task)">
+                <tr *ngFor="let task of list" [class.selected]="task === selectedTask" (click)="onSelect(task)" [ngClass]="{'red': !iscompoleted, 'gray': task.date < this.date, 'green':task.date > this.date } ">
                     <td>
                         <input type="checkbox" class="checked" [checked]="task.status">
                     </td>
