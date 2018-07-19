@@ -9,7 +9,7 @@
 
                 <input type="text" class="form-control" placeholder="Task" required minlength="4" required maxlength="25" [(ngModel)]="todoForm.name" name="name" #pickedName="ngModel">
                 <div *ngIf="!pickedName.valid && pickedName.touched" class="alert alert-danger">
-                    User name is required!
+                    Task is required!
                 </div><br>
                 <input class="form-control" type="Date" [(ngModel)]="todoForm.date" name="date" #pickedDate="ngModel" required>
                 <div *ngIf="!pickedDate.valid && pickedDate.touched" class="alert alert-danger">

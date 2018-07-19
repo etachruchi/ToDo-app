@@ -34,7 +34,7 @@
                     <div class="edit">
                         <input class="form-control" type="text" placeholder="Task" required minlength="4" required maxlength="25" [(ngModel)]="selectedTask.name" name="name" #pickedName="ngModel">
                         <div *ngIf="!pickedName.valid && pickedName.touched" class="alert alert-danger">
-                            User name is required!
+                            Task is required!
                         </div>
                         <br>
                         <input class="form-control" id="date" type="Date" [(ngModel)]="selectedTask.date" name="date" #pickedDate="ngModel" required>
