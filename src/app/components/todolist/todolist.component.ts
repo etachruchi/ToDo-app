@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { fromService } from "../../services/form.service";
+import { Location } from '@angular/common';
 
 @Component({
   selector: "app-todolist",
@@ -21,6 +22,7 @@ export class TodolistComponent implements OnInit {
   onSelect(task: any): void {
     this.selectedTask = task;
     task.status = !task.status;
+    console.log(task.length);
   }
   
   canEdit() {
@@ -28,6 +30,8 @@ export class TodolistComponent implements OnInit {
   }
   getTodos() {
     this.list = this.formService.getTodos();
+   
+   
   }
   editTodos(task) {
     this.formService.editTodos(task);

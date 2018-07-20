@@ -6,6 +6,8 @@ import { TodolistComponent } from './components/todolist/todolist.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TodoformComponent } from './components/todoform/todoform.component';
 import { TodonavigationComponent } from "./components/todonavigation/todonavigation.component";
+import { TodoeditComponent } from './components/todoedit/todoedit.component';
+import { TodostatusComponent } from './components/todostatus/todostatus.component';
 
 @NgModule({
   imports: [
@@ -18,6 +20,8 @@ import { TodonavigationComponent } from "./components/todonavigation/todonavigat
     TodolistComponent,
     TodoformComponent,
     TodonavigationComponent,
+    TodoeditComponent,
+    TodostatusComponent,
   ],
   bootstrap: [AppComponent]
 })
