@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="heading">
+        <h4>Todo-Edit</h4>
+    </div>
+    <div *ngIf="selectedTask ">
+        <form #todoForm="ngForm">
+            <label>name:</label>
+            <div class="edit">
+                <input class="form-control" type="text" placeholder="Task" required minlength="4" required maxlength="25" [(ngModel)]="selectedTask.name" name="name" #pickedName="ngModel">
+                <div *ngIf="!pickedName.valid && pickedName.touched" class="alert alert-danger">
+                    Task is required!
+                </div>
+                <br>
+                <input class="form-control" id="date" type="Date" [(ngModel)]="selectedTask.date" name="date" #pickedDate="ngModel" required>
+                <div *ngIf="!pickedDate.valid && pickedDate.touched" class="alert alert-danger">
+                    Date is required!
+                </div>
+                <br>
+                <div class="register">
+                    <button class="btn btn-success" title="submit" [disabled]="todoForm.form.invalid" (click)="clearTodos(todo)">save</button> &nbsp;
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
