@@ -7,7 +7,7 @@ export class fromService {
   todos = [];
   currentdate = new Date();
   
-  constructor() { }
+   constructor() { }
 
   saveTodo(todo) {
     todo["id"] = this.count;
@@ -23,8 +23,7 @@ export class fromService {
       if (this.todos[i].id == todo["id"]) {
         this.todos[i] = todo;
       }
-    }
-    
+    }  
   }
   deleteTodos(task) {
     this.todos.splice(this.todos.indexOf(task), 1);
@@ -42,9 +41,4 @@ export class fromService {
     return (year + '-' + month + '-' + day);
     
   }
-  totallength(todo){
-
-  }
-
-
 }

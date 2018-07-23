@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
  import { FormsModule } from "@angular/forms";
 import { fromService } from "../../services/form.service";
 import { ActivatedRoute, ParamMap } from "@angular/router";
-
+import { Location } from "@angular/common";
 @Component({
   selector: "app-todoedit",
   templateUrl: "./todoedit.component.html",
@@ -14,15 +14,14 @@ export class TodoeditComponent implements OnInit {
   editable: boolean;
   constructor(
     private formService: fromService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private _location: Location
   ) {}
 
   ngOnInit(): void {
     this.getTodos();
   }
-
-  getTodos(): void {
-    console.log(this.formService.getTodos());
+   getTodos(): void {
     const allTask = this.formService.getTodos();
     const id = +this.route.snapshot.paramMap.get("id");
     for (let i = 0; i < allTask.length; i++) {
@@ -32,9 +31,8 @@ export class TodoeditComponent implements OnInit {
     }
   }
   clearTodos(todo) {
-    this.list = this.formService.getTodos();
-    this.editable = false;
-    window.history.back();
-
-  }
+  this.list = this.formService.getTodos();
+  this.editable = false;
+  this._location.back();
+ }
 }
