@@ -31,7 +31,7 @@ export class TodoeditComponent implements OnInit {
     }
   }
   clearTodos(todo) {
-  this.list = this.formService.getTodos();
+   this.formService.getTodos();
   this.editable = false;
   this._location.back();
  }

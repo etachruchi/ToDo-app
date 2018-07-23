@@ -14,16 +14,16 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let task of list" [class.selected]="task === selectedTask" (click)="onSelect(task)" [ngClass]="{'gray': task.date >= this.date , 'red': task.date < this.date, 'green':task.status } ">
-                    <td>
-                        <input type="checkbox" class="checked" [checked]="task.status">
-                    </td>
-                    <td>{{task.name}}</td>
-                    <td>{{task.date}}</td>
-                    <td colspan="2">
-                        <button class="btn btn-info btn" title="editTodo" routerLink="/todoedit/{{task.id}}">Edit</button>
-                        <button title="deleteTodo" class="btn btn-danger" (click)=" deleteTodos(task)">delete</button>
-                    </td>
+                <tr *ngFor="let task of list" [class.selected]="task === selectedTask" (click)="onSelect(task)" [ngClass]="{'gray': task.date >= this.date , 'red': task.date < this.date, 'green':task.status } "></tr>
+                <td>
+                    <input type="checkbox" class="checked" [checked]="task.status">
+                </td>
+                <td>{{task.name}}</td>
+                <td>{{task.date}}</td>
+                <td colspan="2">
+                    <button class="btn btn-info btn" title="editTodo" routerLink="/todoedit/{{task.id}}">Edit</button>
+                    <button title="deleteTodo" class="btn btn-danger" (click)=" deleteTodos(task)">delete</button>
+                </td>
                 </tr>
             </tbody>
         </table>
