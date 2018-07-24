@@ -21,27 +21,38 @@ export class TodolistComponent implements OnInit {
   }
   ngOnInit() {
     this.getTodos();
+    if (this.list && this.list.length) {
+      this.completedCount();
+    }
   }
   onSelect(task): void {
-    this.count = 0;
     this.selectedTask = task;
     task.status = !task.status;
+    this.completedCount();
+  }
+
+  getTodos() {
+    this.list = this.formService.getTodos();
+    this.allTask = this.formService.getTodos();
+  }
+
+  editTodos(task) {
+    this.formService.editTodos(task);
+  }
+
+  deleteTodos(task) {
+    alert("Are you sure you want to delete ?");
+    this.formService.deleteTodos(task);
+    this.completedCount();
+  }
+
+  completedCount() {
+    this.count = 0;
     this.list.forEach((element, key) => {
       if (element.status == true) {
         this.count++;
       }
     });
     this.countEmitter.emit(this.count);
-  }
-  getTodos() {
-    this.list = this.formService.getTodos();
-    this.allTask = this.formService.getTodos();
-  }
-  editTodos(task) {
-    this.formService.editTodos(task);
-  }
-  deleteTodos(task) {
-    alert("Are you sure you want to delete ?");
-    this.formService.deleteTodos(task);
   }
 }
