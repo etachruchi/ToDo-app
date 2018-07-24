@@ -1,11 +1,10 @@
-import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { fromService } from "../../services/form.service";
 import { TodolistComponent } from "../todolist/todolist.component";
 @Component({
   selector: "app-todostatus",
   templateUrl: "./todostatus.component.html",
-  styleUrls: ["./todostatus.component.css"], 
-  changeDetection: ChangeDetectionStrategy.Default
+  styleUrls: ["./todostatus.component.css"]
 })
 export class TodostatusComponent implements OnInit, OnDestroy {
   allTask: any;
@@ -20,8 +19,6 @@ export class TodostatusComponent implements OnInit, OnDestroy {
     this.getTodos();
     this.countSubscription = this.todolistComponent.countEmitter.subscribe(
       count => {
-        console.log(count);
-        
         this.taskCompleted = count;
       }
     );
@@ -32,6 +29,6 @@ export class TodostatusComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-     this.countSubscription.unsubscribe();
+    this.countSubscription.unsubscribe();
   }
 }

@@ -11,6 +11,7 @@ export class fromService {
 
   saveTodo(todo) {
     todo["id"] = this.count;
+    todo["status"] = false;
     this.todos.push(todo);
     ++this.count;
   }
