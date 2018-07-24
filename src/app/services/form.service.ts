@@ -5,7 +5,6 @@ import { Injectable } from "@angular/core";
 export class fromService {
   count = 1;
   todos = [];
-  counttask = 0;
   currentdate = new Date();
   task;
   constructor() {}

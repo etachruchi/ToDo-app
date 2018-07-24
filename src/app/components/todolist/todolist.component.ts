@@ -1,6 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { fromService } from "../../services/form.service";
-import { Location } from '@angular/common';
+import { Location } from "@angular/common";
 import { Router } from "@angular/router";
 @Component({
   selector: "app-todolist",
@@ -8,18 +8,16 @@ import { Router } from "@angular/router";
   styleUrls: ["./todolist.component.css"]
 })
 export class TodolistComponent implements OnInit {
-  @Output()
-  countEmitter = new EventEmitter();
+  @Output() countEmitter = new EventEmitter();
   list: any;
   task: any;
   selectedTask = { name: "", status: false };
-  editable: boolean;
   date: any;
   count = 0;
   allTask;
 
   constructor(private formService: fromService) {
-      this.date = this.formService.currentDate();
+    this.date = this.formService.currentDate();
   }
   ngOnInit() {
     this.getTodos();
@@ -28,10 +26,10 @@ export class TodolistComponent implements OnInit {
     this.count = 0;
     this.selectedTask = task;
     task.status = !task.status;
-    this.list.forEach((element,key) => {
-    if (element.status == true) {
-    this.count++;
-    }
+    this.list.forEach((element, key) => {
+      if (element.status == true) {
+        this.count++;
+      }
     });
     this.countEmitter.emit(this.count);
   }
