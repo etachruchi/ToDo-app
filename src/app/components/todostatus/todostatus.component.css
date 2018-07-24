@@ -8,9 +8,21 @@ h4 {
 }
 
 .container {
-    width: 40%;
+    width: 22%;
+    float: right;
+    margin-top: -200px;
+    margin-right: 60px;
 }
 
 .register {
     margin-left: 20%;
+}
+
+.alltask {
+    float: right;
+    color: blue;
+}
+
+h5 {
+    color: red;
 }
