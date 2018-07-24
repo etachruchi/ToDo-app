@@ -1,31 +1,35 @@
-<div class="container">
+<div class="container" *ngIf="allTask && allTask.length">
     <div class="heading">
-        <h4>Todo-List</h4>
+        <h4>Todo-List
+        </h4>
     </div>
     <div class="panel-body">
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>Select</th>
+                    <th>Status</th>
                     <th>UserName</th>
                     <th>Date</th>
                     <th>Action</th>
-
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let task of list" [class.selected]="task === selectedTask" (click)="onSelect(task)" [ngClass]="{'gray': task.date >= this.date , 'red': task.date < this.date, 'green':task.status } "></tr>
-                <td>
-                    <input type="checkbox" class="checked" [checked]="task.status">
-                </td>
-                <td>{{task.name}}</td>
-                <td>{{task.date}}</td>
-                <td colspan="2">
-                    <button class="btn btn-info btn" title="editTodo" routerLink="/todoedit/{{task.id}}">Edit</button>
-                    <button title="deleteTodo" class="btn btn-danger" (click)=" deleteTodos(task)">delete</button>
-                </td>
+                <tr *ngFor="let task of list" [class.selected]="task === selectedTask" (click)="onSelect(task)" [ngClass]="{'gray': task.date >= this.date , 'red': task.date < this.date, 'green':task.status } ">
+                    <td>
+                        <input type="checkbox" class="checked" [checked]="task.status">
+                    </td>
+                    <td>{{task.name}}</td>
+                    <td>{{task.date}}</td>
+                    <td colspan="2">
+                        <button class="btn btn-info btn" title="editTodo" routerLink="/todoedit/{{task.id}}">Edit</button>
+                        <button title="deleteTodo" class="btn btn-danger" (click)=" deleteTodos(task)">delete</button>
+                    </td>
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
+<div *ngIf="!(allTask && allTask.length)">
+    <h3>No Task</h3>
+</div>
+<app-todostatus></app-todostatus>

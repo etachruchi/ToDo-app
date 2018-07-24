@@ -3,11 +3,12 @@ import { Injectable } from "@angular/core";
   providedIn: "root"
 })
 export class fromService {
-  count = 0;
+  count = 1;
   todos = [];
+  counttask = 0;
   currentdate = new Date();
-  
-   constructor() { }
+  task;
+  constructor() {}
 
   saveTodo(todo) {
     todo["id"] = this.count;
@@ -16,14 +17,14 @@ export class fromService {
   }
 
   getTodos() {
-    return this.todos ;
+    return this.todos;
   }
   editTodos(todo) {
     for (let i = 0; i < this.todos.length; i++) {
       if (this.todos[i].id == todo["id"]) {
         this.todos[i] = todo;
       }
-    }  
+    }
   }
   deleteTodos(task) {
     this.todos.splice(this.todos.indexOf(task), 1);
@@ -33,12 +34,17 @@ export class fromService {
     this.todos.push(todo);
     ++this.count;
   }
-  
+
   currentDate() {
     const year = this.currentdate.getFullYear();
-    const month = this.currentdate.getMonth() < 10 ? "0" + (this.currentdate.getMonth() + 1) : this.currentdate.getMonth() + 1;
-    const day = this.currentdate.getDate() < 10 ? "0" + this.currentdate.getDate() : this.currentdate.getDate();
-    return (year + '-' + month + '-' + day);
-    
+    const month =
+      this.currentdate.getMonth() < 10
+        ? "0" + (this.currentdate.getMonth() + 1)
+        : this.currentdate.getMonth() + 1;
+    const day =
+      this.currentdate.getDate() < 10
+        ? "0" + this.currentdate.getDate()
+        : this.currentdate.getDate();
+    return year + "-" + month + "-" + day;
   }
 }

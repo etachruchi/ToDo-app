@@ -1,16 +1,28 @@
-<div class="container">
+<div class="container" *ngIf="allTask && allTask.length">
     <div class="heading">
         <h4>Todo-Status</h4>
     </div>
     <div class="panel-body">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>All Task</th>
-                    <th>Uncompleted task</th>
-                    <th>Completed</th>
-                </tr>
-            </thead>
-        </table>
+        <div>
+            <h5>All Task
+                <span class="alltask">
+            <td>{{allTask.length}}</td>
+            </span>
+            </h5>
+        </div>
+        <div>
+            <h5>Completed Task
+                <span class="alltask">
+            <td>{{taskCompleted}}</td>
+            </span>
+            </h5>
+        </div>
+        <div>
+            <h5>Remaining
+                <span class="alltask">
+             <td>{{allTask.length - taskCompleted}}</td>
+             </span>
+            </h5>
+        </div>
     </div>
 </div>
