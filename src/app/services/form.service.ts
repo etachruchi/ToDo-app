@@ -14,6 +14,7 @@ export class fromService {
     todo["status"] = false;
     this.todos.push(todo);
     ++this.count;
+    this.setList();
   }
 
   getTodos() {
@@ -25,16 +26,16 @@ export class fromService {
         this.todos[i] = todo;
       }
     }
+    this.setList();
   }
   deleteTodos(task) {
     this.todos.splice(this.todos.indexOf(task), 1);
+    if (this.todos.length) {
+      this.setList();
+    } else {
+      localStorage.clear();
+    }
   }
-  clearTodos(todo) {
-    todo["id"] = this.count;
-    this.todos.push(todo);
-    ++this.count;
-  }
-
   currentDate() {
     const year = this.currentdate.getFullYear();
     const month =
@@ -46,5 +47,13 @@ export class fromService {
         ? "0" + this.currentdate.getDate()
         : this.currentdate.getDate();
     return year + "-" + month + "-" + day;
+  }
+
+  setList(list?) {
+    if (list) {
+      localStorage.setItem("list", JSON.stringify(list));
+    } else {
+      localStorage.setItem("list", JSON.stringify(this.todos));
+    }
   }
 }

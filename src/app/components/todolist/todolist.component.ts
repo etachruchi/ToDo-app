@@ -14,7 +14,6 @@ export class TodolistComponent implements OnInit {
   selectedTask = { name: "", status: false };
   date: any;
   count = 0;
-  allTask;
 
   constructor(private formService: fromService) {
     this.date = this.formService.currentDate();
@@ -29,11 +28,16 @@ export class TodolistComponent implements OnInit {
     this.selectedTask = task;
     task.status = !task.status;
     this.completedCount();
-  }
+     this.formService.setList(this.list);
+    }
 
   getTodos() {
-    this.list = this.formService.getTodos();
-    this.allTask = this.formService.getTodos();
+    if (JSON.parse(localStorage.getItem("list"))) {
+      this.list = JSON.parse(localStorage.getItem("list"));
+    } else {
+      this.list = null;
+    }
+    
   }
 
   editTodos(task) {
@@ -43,16 +47,21 @@ export class TodolistComponent implements OnInit {
   deleteTodos(task) {
     alert("Are you sure you want to delete ?");
     this.formService.deleteTodos(task);
+    this.getTodos();
     this.completedCount();
   }
 
   completedCount() {
-    this.count = 0;
-    this.list.forEach((element, key) => {
-      if (element.status == true) {
-        this.count++;
-      }
-    });
-    this.countEmitter.emit(this.count);
+    if (this.list) {
+      this.count = 0;
+      this.list.forEach((element, key) => {
+        if (element.status == true) {
+          this.count++;
+        }
+      });
+      this.countEmitter.emit(this.count);
+    } else {
+      this.countEmitter.emit(0);
+    }
   }
 }
