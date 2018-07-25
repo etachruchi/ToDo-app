@@ -18,7 +18,10 @@ export class fromService {
   }
 
   getTodos() {
-    return this.todos;
+    if (JSON.parse(localStorage.getItem("list"))) {
+    this.todos = JSON.parse(localStorage.getItem("list"));
+     }
+     return this.todos;
   }
   editTodos(todo) {
     for (let i = 0; i < this.todos.length; i++) {
@@ -49,11 +52,11 @@ export class fromService {
     return year + "-" + month + "-" + day;
   }
 
-  setList(list?) {
-    if (list) {
-      localStorage.setItem("list", JSON.stringify(list));
-    } else {
-      localStorage.setItem("list", JSON.stringify(this.todos));
-    }
+  setList() {
+    localStorage.setItem("list", JSON.stringify(this.todos));
+  }
+  updateTodos(list) {
+    this.todos = list;
+    this.setList();
   }
 }

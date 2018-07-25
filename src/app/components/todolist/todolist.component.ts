@@ -28,7 +28,7 @@ export class TodolistComponent implements OnInit {
     this.selectedTask = task;
     task.status = !task.status;
     this.completedCount();
-     this.formService.setList(this.list);
+     this.formService.updateTodos(this.list);
     }
 
   getTodos() {
@@ -36,9 +36,8 @@ export class TodolistComponent implements OnInit {
       this.list = JSON.parse(localStorage.getItem("list"));
     } else {
       this.list = null;
+    } 
     }
-    
-  }
 
   editTodos(task) {
     this.formService.editTodos(task);
