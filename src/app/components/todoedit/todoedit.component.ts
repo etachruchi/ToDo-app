@@ -11,6 +11,7 @@ import { Location } from "@angular/common";
 export class TodoeditComponent implements OnInit {
   selectedTask: any;
   list: any;
+  allTask:any;
   editable: boolean;
   constructor(
     private formService: fromService,
@@ -22,17 +23,18 @@ export class TodoeditComponent implements OnInit {
     this.getTodos();
   }
    getTodos(): void {
-    const allTask = this.formService.getTodos();
+     if (JSON.parse(localStorage.getItem("list"))) {
+       this.allTask = JSON.parse(localStorage.getItem("list"));
+     }
     const id = +this.route.snapshot.paramMap.get("id");
-    for (let i = 0; i < allTask.length; i++) {
-      if (id == allTask[i]["id"]) {
-        this.selectedTask = allTask[i];
+    for (let i = 0; i < this.allTask.length; i++) {
+      if (id == this.allTask[i]["id"]) {
+        this.selectedTask = this.allTask[i];
       }
     }
   }
-  clearTodos(todo) {
-   this.formService.getTodos();
-  this.editable = false;
+  editTodos(todo) {
+  this.formService.editTodos(this.selectedTask);
   this._location.back();
- }
+}
 }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
- import { FormsModule } from "@angular/forms";
+import { FormsModule } from "@angular/forms";
 import { fromService } from "../../services/form.service";
-
+import { Router } from "@angular/router";
+import { TodolistComponent } from "../todolist/todolist.component";
 @Component({
   selector: "app-todoform",
   templateUrl: "./todoform.component.html",
@@ -11,7 +12,8 @@ import { fromService } from "../../services/form.service";
 export class TodoformComponent implements OnInit {
 
   constructor(
-    private formService: fromService
+    private formService: fromService,
+    private router:Router
   ) {}
 
   ngOnInit() {
@@ -19,6 +21,8 @@ export class TodoformComponent implements OnInit {
   onSubmit(fromData) {
      this.formService.saveTodo(fromData.value);
      fromData.form.reset();
-   
+    this.router.navigate(['/todolist']);
+
   }
+
 }

@@ -1,4 +1,4 @@
-<div class="container" *ngIf="allTask && allTask.length">
+<div class="container" *ngIf="list && list.length">
     <div class="heading">
         <h4>Todo-List
         </h4>
@@ -29,7 +29,7 @@
         </table>
     </div>
 </div>
-<div *ngIf="!(allTask && allTask.length)">
+<div *ngIf="!(list && list.length)">
     <h3>No Task</h3>
 </div>
 <app-todostatus></app-todostatus>

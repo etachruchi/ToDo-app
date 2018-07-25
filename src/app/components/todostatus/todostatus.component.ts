@@ -20,14 +20,17 @@ export class TodostatusComponent implements OnInit, OnDestroy {
     this.countSubscription = this.todolistComponent.countEmitter.subscribe(
       count => {
         this.taskCompleted = count;
+        console.log(this.taskCompleted);
+        if (!this.taskCompleted) {
+          this.getTodos();
+        }
       }
     );
   }
 
   getTodos(): void {
-    this.allTask = this.formService.getTodos();
+   this.allTask= this.formService.getTodos();
   }
-
   ngOnDestroy() {
     this.countSubscription.unsubscribe();
   }
